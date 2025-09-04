@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+
+# (optional) make sure the path is routable
+[[redirects]]
+  from = "/.netlify/functions/dobby"
+  to = "/.netlify/functions/dobby"
+  status = 200
+
