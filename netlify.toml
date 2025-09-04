@@ -1,9 +1,10 @@
 [build]
   functions = "netlify/functions"
+  publish = "."
 
-# (optional) make sure the path is routable
+# Redirect clean path /dobby → Netlify function
 [[redirects]]
-  from = "/.netlify/functions/dobby"
+  from = "/dobby"
   to = "/.netlify/functions/dobby"
   status = 200
 
