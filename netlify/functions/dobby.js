@@ -1,13 +1,10 @@
-// Plain Netlify Function (no Express needed)
-const fetch = require('node-fetch');
-
 const FW_URL = 'https://api.fireworks.ai/inference/v1/chat/completions';
 const MODEL = 'accounts/sentientfoundation/models/dobby-unhinged-llama-3-3-70b-new';
 
 // Accept either var name
 const API_KEY = process.env.SENTIENT_API_KEY || process.env.FIREWORKS_API_KEY;
 
-exports.handler = async (event) => {
+export async function handler(event) {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method Not Allowed' }) };
   }
@@ -64,4 +61,4 @@ exports.handler = async (event) => {
   } catch (err) {
     return { statusCode: 500, body: JSON.stringify({ error: 'Internal error', details: err.message }) };
   }
-};
+}
